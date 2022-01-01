@@ -18,7 +18,7 @@ podTemplate(label: 'docker-build',
   ]
 ) {
     node('docker-build') {
-        def dockerHubCred = <ybchoiosci>
+        withCredentials([usernamePassword(credentialsId: 'ybchoiosci', passwordVariable: 'password', usernameVariable: 'username')])
         def appImage
         
         stage('Checkout'){
