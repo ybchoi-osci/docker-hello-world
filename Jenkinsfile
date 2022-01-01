@@ -31,7 +31,6 @@ podTemplate(label: 'docker-build',
         stage('Build'){
             container('docker'){
                 sh "docker build -t ybchoiosci/node-hello-world -f ./Dockerfile ."
-                }
             }
         }
         
