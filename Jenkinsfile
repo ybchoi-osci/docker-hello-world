@@ -11,6 +11,7 @@ podTemplate(label: 'docker-build',
       image: 'docker',
       command: 'cat',
       ttyEnabled: true
+
     ),
   ],
   volumes: [ 
@@ -29,8 +30,7 @@ podTemplate(label: 'docker-build',
         
         stage('Build'){
             container('docker'){
-                script {
-                    appImage = docker.build("ybchoiosci/node-hello-world")
+                sh "docker build -t ybchoiosci/node-hello-world -f ./Dockerfile ."
                 }
             }
         }
