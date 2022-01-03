@@ -30,7 +30,6 @@ podTemplate(label: 'docker-build',
         
         stage('Build'){
             container('docker'){
-                sh "export JAVA_OPTS+= -Dorg.csanchez.jenkins.plugins.kubernetes.pipeline.ContainerExecDecorator.websocketConnectionTimeout=120"
                 sh "docker build -t ybchoiosci/node-hello-world -f ./Dockerfile ."
             }
         }
